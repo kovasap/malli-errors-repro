@@ -1,14 +1,19 @@
 (ns app.core
   (:require
-   [app.submodule :as submodule]
-   [goog.string :as gstring]
    [reagent.core :as r]
-   [reagent.dom :as d]))
+   [reagent.dom :as d]
+   ["react-data-grid" :default DataGrid]))
 
+(defn maps-to-datagrid
+  [maps]
+  [(r/adapt-react-class DataGrid)
+   {:columns (map #({:key % :name (name %)}) (keys (first maps)))
+    :rows maps}])
 
 (defn home-page []
-  (fn [] [:div [:h2 "My App"]
-          [:div]]))
+  (fn []
+    [:div [:h2 "My App"]
+     [maps-to-datagrid [{:key "value"}]]]))
 
 
 ;; -------------------------

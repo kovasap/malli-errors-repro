@@ -1,20 +1,8 @@
-# Template App
+# `react-data-grid` Failure Reproduction
 
-## Development Commands
+Run these commands to reproduce the failure:
 
-### Development mode
 ```
 npm install
-npx shadow-cljs watch app
+npx shadow-cljs build app
 ```
-start a ClojureScript REPL
-```
-npx shadow-cljs browser-repl
-```
-### Building for production
-
-```
-./release.bash
-```
-
-This will put all the final artifacts in the "release" directory.
