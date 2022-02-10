@@ -2,12 +2,13 @@
   (:require
    [reagent.core :as r]
    [reagent.dom :as d]
-   ["react-data-grid" :default DataGrid]))
+   ["react-data-grid" :as DataGrid]))
 
 (defn maps-to-datagrid
   [maps]
   [(r/adapt-react-class DataGrid)
-   {:columns (map #({:key % :name (name %)}) (keys (first maps)))
+   {:columns (map (fn [m] {:key m :name (name m)})
+                  (keys (first maps)))
     :rows maps}])
 
 (defn home-page []
