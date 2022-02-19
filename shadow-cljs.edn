@@ -2,10 +2,14 @@
  :dependencies [[binaryage/devtools "1.0.3"]
                 [nrepl "0.8.3"]
                 [cljs-http "0.1.46"]
+                [metasoarous/oz "2.0.0-alpha5"]
                 [reagent "1.1.0"]]
  :builds       {:app {:target     :browser
                       :output-dir "public/js"
                       :asset-path "/js"
+                      ; Uncomment when using webpack
+                      :js-options {:js-provider :external
+                                   :external-index "target/index.js"}
                       :modules    {:app {:entries [app.core]}}
                       :devtools   {:after-load app.core/mount-root}}}
 

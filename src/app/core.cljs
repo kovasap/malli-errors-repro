@@ -1,20 +1,21 @@
 (ns app.core
   (:require
-   [reagent.core :as r]
    [reagent.dom :as d]
-   ["react-data-grid" :as DataGrid]))
+   [oz.core :as oz]))
 
-(defn maps-to-datagrid
-  [maps]
-  [(r/adapt-react-class DataGrid)
-   {:columns (map (fn [m] {:key m :name (name m)})
-                  (keys (first maps)))
-    :rows maps}])
 
 (defn home-page []
   (fn []
     [:div [:h2 "My App"]
-     [maps-to-datagrid [{:key "value"}]]]))
+     [oz.core/vega-lite
+      {:data {:values [{:x 1 :y 2}
+                       {:x 2 :y 4}
+                       {:x 3 :y 6}]}
+       :mark "point"
+       :encoding {:x {:field :x
+                      :type "nominal"}
+                  :y {:field :y
+                      :type "quantitative"}}}]]))
 
 
 ;; -------------------------
