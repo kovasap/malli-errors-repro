@@ -1,12 +1,13 @@
 # `oz` with `webpack` Failure Reproduction
 
-Run these commands to reproduce the failure:
+Run these commands to reproduce the failure when `metasoarous/oz` is used in
+`deps.edn`.  With my `"vega-import-fix"` version, the problem disappears.
 
 ```
 npm install
-npx shadow-cljs watch app
+clj -A:shadow-cljs watch app
 npx webpack --entry ./target/index.js --output-path public/js/libs.js
-npx shadow-cljs watch app
+clj -A:shadow-cljs watch app
 ```
 
 Open the app in your browser and look at the chrome console.
