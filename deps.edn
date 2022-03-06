@@ -1,6 +1,5 @@
 {:paths ["src"]
- :deps {io.github.kovasap/oz {:git/tag "vega-import-fix" :git/sha "4bf14e7"}
-        ; metasoarous/oz {:mvn/version "2.0.0-alpha5"}
+ :deps {metosin/malli {:mvn/version "0.8.4"}
         binaryage/devtools {:mvn/version "1.0.3"}
         nrepl/nrepl {:mvn/version "0.8.3"}
         cljs-http/cljs-http {:mvn/version "0.1.46"}

@@ -1,21 +1,15 @@
 (ns app.core
   (:require
+   [app.helper :as h]
    [reagent.dom :as d]
-   [oz.core :as oz]))
+   [malli.dev.cljs :as dev]
+   [malli.dev.pretty :as pretty]))
 
 
 (defn home-page []
+  (h/my-helper [1.2])
   (fn []
-    [:div [:h2 "My App"]
-     [oz.core/vega-lite
-      {:data {:values [{:x 1 :y 2}
-                       {:x 2 :y 4}
-                       {:x 3 :y 6}]}
-       :mark "point"
-       :encoding {:x {:field :x
-                      :type "nominal"}
-                  :y {:field :y
-                      :type "quantitative"}}}]]))
+    [:div "test"]))
 
 
 ;; -------------------------
@@ -26,3 +20,6 @@
 
 (defn ^:export init! []
   (mount-root))
+
+
+(dev/start! {:report (pretty/reporter)})
