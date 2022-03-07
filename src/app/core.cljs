@@ -18,8 +18,11 @@
 (defn mount-root []
   (d/render [home-page] (.getElementById js/document "app")))
 
-(defn ^:export init! []
+(defn ^:dev/after-load refresh []
+  (prn "Hot code Remount")
+  ; Check all malli function "specs"
+  (dev/start! {:report (pretty/reporter)})
   (mount-root))
 
-
-(dev/start! {:report (pretty/reporter)})
+(defn ^:export init! []
+  (mount-root))
