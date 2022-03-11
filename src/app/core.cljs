@@ -6,8 +6,17 @@
    [malli.dev.pretty :as pretty]))
 
 
+(defn a-function 
+  {:malli/schema [:=> [:cat :int]
+                  :string]}
+  [my-int]
+  "testing")
+  
+
+
 (defn home-page []
   (h/my-helper [1.2])
+  (a-function "not a int")
   (fn []
     [:div "test"]))
 
