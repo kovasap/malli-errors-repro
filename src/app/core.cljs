@@ -34,6 +34,8 @@
   ; (dev/start! {:report (pretty/reporter)})
   (malli.dev.cljs/collect-all!)
   (malli.instrument.cljs/instrument!)
+  ; This throws an error as expected
+  ; (a-function "45")
   (mount-root))
 
 (defn ^:export init! []
