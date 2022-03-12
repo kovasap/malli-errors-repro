@@ -1,5 +1,6 @@
 {:paths ["src"]
- :deps {metosin/malli {:mvn/version "0.8.4"}
+ :deps {metosin/malli {:git/url "https://github.com/metosin/malli.git"
+                       :git/sha "303c6062f02a2beed62e432c1a1a1046cfa1e288"} ; :mvn/version "0.8.4"}
         binaryage/devtools {:mvn/version "1.0.3"}
         nrepl/nrepl {:mvn/version "0.8.3"}
         cljs-http/cljs-http {:mvn/version "0.1.46"}

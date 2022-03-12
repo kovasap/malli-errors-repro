@@ -3,6 +3,7 @@
    [app.helper :as h]
    [reagent.dom :as d]
    [malli.dev.cljs :as dev]
+   [malli.instrument.cljs]
    [malli.dev.pretty :as pretty]))
 
 
@@ -16,7 +17,7 @@
 
 (defn home-page []
   (h/my-helper [1.2])
-  (a-function "not a int")
+  (a-function "not")
   (fn []
     [:div "test"]))
 
@@ -30,7 +31,9 @@
 (defn ^:dev/after-load refresh []
   (prn "Hot code Remount")
   ; Check all malli function "specs"
-  (dev/start! {:report (pretty/reporter)})
+  ; (dev/start! {:report (pretty/reporter)})
+  (malli.dev.cljs/collect-all!)
+  (malli.instrument.cljs/instrument!)
   (mount-root))
 
 (defn ^:export init! []
